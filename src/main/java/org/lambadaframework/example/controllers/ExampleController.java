@@ -53,4 +53,24 @@ public class ExampleController {
                 .entity(new Entity(name))
                 .build();
     }
+    @GET
+    @Path("test/test1")
+    public Response test1(
+    ) {
+
+        logger.debug("Request got");
+        return Response.status(201)
+                .entity(new Entity("test"))
+                .build();
+    }
+    @GET
+    @Path("test/test2")
+    public Response test2(
+    ) {
+
+        logger.debug("Request got");
+        return Response.status(201)
+                .entity(new Entity("test2"))
+                .build();
+    }
 }
