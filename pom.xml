@@ -6,9 +6,9 @@
     <packaging>jar</packaging>
     <version>0.0.4</version>
     <properties>
-        <lambada.version>0.0.4</lambada.version>
+        <lambada.version>0.0.6</lambada.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <deployment.bucket>lambada-boilerplate</deployment.bucket>
+        <deployment.bucket>aubels-2-lambada-boilerplate</deployment.bucket>
         <deployment.package>org.lambadaframework.example</deployment.package>
         <!-- Region to deploy-->
         <deployment.region>eu-west-1</deployment.region>
@@ -24,6 +24,12 @@
             <groupId>org.lambadaframework</groupId>
             <artifactId>runtime</artifactId>
             <version>${lambada.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-lambda-java-log4j -->
+        <dependency>
+            <groupId>com.amazonaws</groupId>
+            <artifactId>aws-lambda-java-log4j</artifactId>
+            <version>1.0.0</version>
         </dependency>
     </dependencies>
     <build>

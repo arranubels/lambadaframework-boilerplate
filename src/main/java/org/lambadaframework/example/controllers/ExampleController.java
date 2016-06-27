@@ -3,74 +3,30 @@ package org.lambadaframework.example.controllers;
 import org.apache.log4j.Logger;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("/")
 public class ExampleController {
-
-
     static final Logger logger = Logger.getLogger(ExampleController.class);
 
-    static class Entity {
-        public int id = 1;
-        public String name;
+    public static class Input {
+        public String value;
 
-        public Entity(String name) {
-            this.name = name;
+        public Input(String value) {
+            this.value = value;
         }
     }
 
-    @GET
-    @Path("/")
-    public Response indexEndpoint(
-    ) {
-        logger.debug("Request got");
-        return Response.status(200)
-                .entity(new Entity("John doe"))
-                .build();
-    }
-
-    @GET
-    @Path("{name}")
-    public Response exampleEndpoint(
-            @PathParam("name") String name
-    ) {
-
-        logger.debug("Request got");
-        return Response.status(200)
-                .entity(new Entity(name))
-                .build();
-    }
-
-    @GET
-    @Path("resource/{name}")
-    public Response exampleSecondEndpoint(
-            @PathParam("name") String name
-    ) {
-
-        logger.debug("Request got");
-        return Response.status(201)
-                .entity(new Entity(name))
-                .build();
-    }
-    @GET
+    @POST
     @Path("test/test1")
-    public Response test1(
-    ) {
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response test1(@FormParam("value") Input input) {
 
         logger.debug("Request got");
         return Response.status(201)
-                .entity(new Entity("test"))
-                .build();
-    }
-    @GET
-    @Path("test/test2")
-    public Response test2(
-    ) {
-
-        logger.debug("Request got");
-        return Response.status(201)
-                .entity(new Entity("test2"))
+                .entity(input)
                 .build();
     }
 }
