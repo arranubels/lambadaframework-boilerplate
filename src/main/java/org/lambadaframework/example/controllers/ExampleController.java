@@ -22,11 +22,47 @@ public class ExampleController {
     @Path("test/test1")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response test1(@FormParam("value") Input input) {
+    public Response test1(Input value) {
 
         logger.debug("Request got");
         return Response.status(201)
-                .entity(input)
+                .entity(value)
+                .build();
+    }
+
+    @POST
+    @Path("test/test2")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response test2(String value) {
+
+        logger.debug("Request got");
+        return Response.status(201)
+                .entity(value)
+                .build();
+    }
+
+    @POST
+    @Path("test/test3")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response test3(@FormParam("value") String value) {
+
+        logger.debug("Request got");
+        return Response.status(201)
+                .entity(value)
+                .build();
+    }
+
+    @POST
+    @Path("test/test4")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+    public Response test4(@QueryParam("value") String value) {
+
+        logger.debug("Request got");
+        return Response.status(201)
+                .entity(value)
                 .build();
     }
 }
