@@ -13,6 +13,7 @@ public class ExampleController {
 
 
     static final Logger logger = Logger.getLogger(ExampleController.class);
+        Fairy fairy = Fairy.create();
 
     @GET
     public Response indexEndpoint(
@@ -39,7 +40,6 @@ public class ExampleController {
     @Path("/{name}/fullname")
     public Response exampleEndpointFullname(
     ) {
-        Fairy fairy = Fairy.create();
         Person person = fairy.person();
 
         String name = person.fullName();
